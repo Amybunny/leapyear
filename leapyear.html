@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LeapYear</title>
+</head>
+<body>
+  <form action="#" id="form">
+    <input type="text" id="year" name="year">
+    <input type="submit" value="判定" id="button">
+  </form>
+  <p id="output"></p>
+  <script>
+    let form = document.getElementById('button');
+    form.onclick = function(){
+      event.preventDefault();
+      let year = document.getElementById('form').year.value;
+      let ans = IsLeapYear(year);
+      let output = document.getElementById('output');
+      output.textContent = year+"年は"+ans;
+    }
+    
+    function IsLeapYear(Year){
+      let Ans;
+      if(Year % 4 == 0 && Year % 100 != 0){
+        Ans = "うるう年です";
+      }else if(Year % 400 == 0){
+        Ans = "うるう年です";
+      }else{
+        Ans = "うるう年ではありません";
+      }
+      return Ans;
+    }
+  </script>
+</body>
+</html>
